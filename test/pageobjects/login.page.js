@@ -10,10 +10,11 @@ class LoginPage {
     get previousOrdersHeader() { return $('div.ui div h1.ui') }
     get myAccount() { return $('.menu .active') }
     get loginErrorMessage() { return $('.content p') }
+    get signInOutLink() { return $('div.right a:nth-child(2)') }
     credentialRequiredMessage(index) { return $(`form .segment p:nth-child(${index})`) }
 
     /**
-     * Enter user email
+     * Enters user email
      * @param {string} text 
      */
     enterUserEmail(text) {
@@ -33,18 +34,16 @@ class LoginPage {
     }
 
     /**
-     * Click the login button
+     * Clicks the login button
      */
     clickLoginButton() {
         this.loginButton.waitForDisplayed()
         this.loginButton.click()
     }
-
-    // getMyAccountHeader() {
-    //     this.myAccoundHeader.waitForDisplayed()
-    //     return this.myAccoundHeader.getText()
-    // }
-
+  
+    /**
+     * Gets the heading of the 'Previous Orders' page
+     */
     getLoginConfirmation() {
         var result;
         if(this.previousOrdersHeader.isDisplayed() === true){
@@ -54,6 +53,28 @@ class LoginPage {
             result = (this.noOrdersHeader.getText() === 'No recent orders');
         }
         return result
+    }
+
+    /**
+     * This function logs in an authenticated user
+     */
+    loginValidUser() {
+        this.enterUserEmail(loginData.validEmail)
+        this.enterPassword(loginData.validPassword)
+        this.clickLoginButton()
+        browser.waitUntil( () => this.myAccount.getText() === 'My Account',
+            {
+                timeout: 20000,
+                timeoutMsg: 'Expected "My Account" to be present'
+            })
+    }
+
+    /**
+     * Clicks the sign in/sign out button
+     */
+    clickSignInOutLink() {
+        this.signInOutLink.waitForDisplayed()
+        this.signInOutLink.click()
     }
 
 }

@@ -31,6 +31,9 @@ exports.config = {
     suites: {
         authentication: [
             './test/authentication/**/*.js'
+        ],
+        "add-to-cart": [
+            './test/add-to-cart/**/*.js'
         ]
     },
     // Patterns to exclude.
