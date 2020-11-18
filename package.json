@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node ./node_modules/.bin/wdio ./wdio.conf.js",
     "authentication": "./node_modules/.bin/wdio ./wdio.conf.js --suite authentication",
-    "add-to-cart": "./node_modules/.bin/wdio ./wdio.conf.js --suite add-to-cart"
+    "add-to-cart": "./node_modules/.bin/wdio ./wdio.conf.js --suite add-to-cart",
+    "checkout": "./node_modules/.bin/wdio ./wdio.conf.js --suite checkout"
   },
   "author": "Yanique Dickson",
   "license": "ISC",

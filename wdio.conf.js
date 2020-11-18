@@ -34,6 +34,9 @@ exports.config = {
         ],
         "add-to-cart": [
             './test/add-to-cart/**/*.js'
+        ],
+        checkout: [
+            './test/checkout/**/*.js'
         ]
     },
     // Patterns to exclude.
