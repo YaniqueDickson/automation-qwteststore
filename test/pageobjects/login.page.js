@@ -24,7 +24,7 @@ class LoginPage {
     }
 
     /**
-     * Enters password
+     * Enter password
      * @param {string} text 
      */
     enterPassword(text) {
@@ -40,7 +40,7 @@ class LoginPage {
         this.loginButton.waitForDisplayed()
         this.loginButton.click()
     }
-
+  
     /**
      * Gets the heading of the 'Previous Orders' page
      */
